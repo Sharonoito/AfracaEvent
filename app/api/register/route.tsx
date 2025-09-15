@@ -104,9 +104,9 @@ export async function POST(request: NextRequest) {
     console.log("[v0] QR code generated successfully")
 
     const baseUrl =
-      process.env.NODE_ENV === "production"
-        ? "https://afraca-event-1l4qojjtf-sharonoitos-projects.vercel.app/"
-        : process.env.NEXT_PUBLIC_APP_URL || "https://v0.app"
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : process.env.NEXT_PUBLIC_APP_URL || "https://afraca-event.vercel.app"
 
     const qrUrl = `${baseUrl}/qr/${qrToken}`
     const qrImageUrl = `${baseUrl}/api/qr/image/${qrToken}`
@@ -229,6 +229,7 @@ export async function POST(request: NextRequest) {
     }
 
     console.log(`[v0] Registration successful for: ${email}`)
+    console.log(`[v0] QR Generated for: ${qrImageUrl}`)
 
     return NextResponse.json({
       success: true,
