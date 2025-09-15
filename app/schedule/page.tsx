@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+
+
 import { sql } from "@/lib/database"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"

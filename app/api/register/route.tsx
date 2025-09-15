@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { type NextRequest, NextResponse } from "next/server"
 import { sql } from "@/lib/database"
 import { Resend } from "resend"
@@ -197,7 +199,7 @@ export async function POST(request: NextRequest) {
                 <!-- Call to Action -->
                 <div style="text-align: center; margin: 40px 0;">
                   <a href="${qrUrl}" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #ffffff; text-decoration: none; padding: 15px 30px; border-radius: 8px; font-weight: 600; font-size: 16px; display: inline-block; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);">
-                    🔗 View QR Code Online
+                    🔗  View the website to connect
                   </a>
                 </div>
               </div>

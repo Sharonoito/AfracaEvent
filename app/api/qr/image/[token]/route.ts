@@ -9,6 +9,8 @@ export async function GET(
   try {
     const { token } = params
 
+    console.log('token accepted...' + token)
+
     // Verify the QR token exists
     const qrRecord = await sql`
       SELECT user_id FROM qr_codes WHERE qr_token = ${token}
@@ -18,14 +20,17 @@ export async function GET(
       return new NextResponse("QR code not found", { status: 404 })
     }
 
+    console.log('Record',qrRecord)
+
     const baseUrl =
       process.env.NODE_ENV === "development"
-        ? "http://localhost:3000"
+        ? "http://localhost:3002"
         : process.env.NEXT_PUBLIC_APP_URL || "https://your-deployed-app.vercel.app"
 
     const qrUrl = `${baseUrl}/qr/${token}`
 
     try {
+      console.log('Buffer attempt')
       // Try toBuffer first (works in Node.js server environment)
       const qrCodeBuffer = await QRCode.toBuffer(qrUrl, {
         width: 300,
@@ -44,6 +49,8 @@ export async function GET(
         },
       })
     } catch (bufferError) {
+      console.log('Buffer fallback attempt')
+
       // Fallback to toDataURL if toBuffer fails
       const qrCodeDataURL = await QRCode.toDataURL(qrUrl, {
         width: 300,

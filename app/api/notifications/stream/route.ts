@@ -1,3 +1,7 @@
+export const dynamic = "force-dynamic";
+export const runtime = "edge";
+
+
 import { sql } from "@/lib/database"
 
 // For demo purposes, we'll use a hardcoded user ID

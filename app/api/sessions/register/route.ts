@@ -1,7 +1,8 @@
+export const dynamic = "force-dynamic";
+
 import { type NextRequest, NextResponse } from "next/server"
 import { sql } from "@/lib/database"
 
-// For demo purposes, we'll use a hardcoded user ID
 const DEMO_USER_ID = "demo-user-123"
 
 export async function POST(request: NextRequest) {
