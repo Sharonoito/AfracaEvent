@@ -2,6 +2,9 @@ import { type NextRequest, NextResponse } from "next/server"
 import { sql } from "@/lib/database"
 import QRCode from "qrcode"
 
+export const runtime = "nodejs"
+
+
 export async function GET(
   request: NextRequest,
   { params }: { params: { token: string } }
@@ -25,7 +28,7 @@ export async function GET(
     const baseUrl =
       process.env.NODE_ENV === "development"
         ? "http://localhost:3002"
-        : process.env.NEXT_PUBLIC_APP_URL || "https://your-deployed-app.vercel.app"
+        : process.env.NEXT_PUBLIC_APP_URL || "https://afraca-event.vercel.app/"
 
     const qrUrl = `${baseUrl}/qr/${token}`
 
