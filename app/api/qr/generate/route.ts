@@ -24,7 +24,9 @@ export async function POST(request: NextRequest) {
         used_at = null
     `
 
-    const qrCodeUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/qr/${qrToken}`
+    // const qrCodeUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/qr/${qrToken}`
+    const qrCodeUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "https://afraca-event-1l4qojjtf-sharonoitos-projects.vercel.app/"}/qr/${qrToken}`
+    
 
     return NextResponse.json({
       success: true,
